@@ -73,6 +73,12 @@ public class TicketController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(TicketMessageResponse.from(message));
 	}
 
+	@PatchMapping("/{id}/status")
+	public TicketSummaryResponse updateStatus(@PathVariable Long id, @Valid @RequestBody TicketStatusUpdateRequest request) {
+		Ticket ticket = ticketService.updateStatus(id, request.status());
+		return TicketSummaryResponse.from(ticket);
+	}
+
 	@ExceptionHandler(EmailSendException.class)
 	public ResponseEntity<String> handleEmailSendFailure(EmailSendException e) {
 		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Failed to send email");
