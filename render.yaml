@@ -56,9 +56,9 @@ services:
       - key: SENDGRID_API_KEY
         sync: false
       - key: SENDGRID_FROM_ADDRESS
-        sync: false
+        value: support@philbelinsky.com
       - key: SENDGRID_INBOUND_REPLY_DOMAIN
-        sync: false
+        value: inbound.philbelinsky.com
       - key: SENDGRID_WEBHOOK_SECRET
         sync: false
       - key: GOOGLE_GENAI_API_KEY
